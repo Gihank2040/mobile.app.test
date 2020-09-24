@@ -1,4 +1,4 @@
-package com.mobileApp.mobile.app.test.dto;
+package com.mobileApp.mobile.app.test.ws.dto;
 
 import java.io.Serializable;
 
