@@ -1,19 +1,10 @@
-package com.mobileApp.mobile.app.test.model.responce;
+package com.mobileApp.mobile.app.test.model;
 
-public class UserResponce {
-
-    private String userId;
+public class UserDetailModel {
     private String firstName;
     private String lastName;
     private String email;
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+    private String password;
 
     public String getFirstName() {
         return firstName;
@@ -37,5 +28,13 @@ public class UserResponce {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
