@@ -1,5 +1,6 @@
 package com.example.autowired.test.autow22.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,24 +14,25 @@ public class Userentity implements Serializable {
     @GeneratedValue
     private long id;
 
-    // @Column(nullable = false)
+   // @Column(nullable = false)
     private String userId;
 
-    // @Column(nullable = false ,length = 50)
+  //  @Column(nullable = false ,length = 50)
     private String firstName;
 
-    // @Column(nullable = false ,length = 50)
+  //  @Column(nullable = false ,length = 50)
     private String lastName;
 
-    //  @Column(nullable = false ,length = 120)
+  //  @Column(nullable = false ,length = 120)
+    @Column(unique = true)
     private String email;
 
-    // @Column(nullable = false)
+  //  @Column(nullable = false)
     private String encryptedPassword;
 
     private String emailVerificationToken;
 
-    //  @Column(nullable = false, columnDefinition = "default value false")
+ //   @Column(nullable = false, columnDefinition = "default value false")
     private Boolean emailVerificationStatus;
 
 
@@ -99,4 +101,3 @@ public class Userentity implements Serializable {
     }
 }
 
-//this class end

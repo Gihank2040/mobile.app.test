@@ -1,6 +1,7 @@
 package com.example.autowired.test.autow22.controller;
 
 import com.example.autowired.test.autow22.dto.UserDto;
+import com.example.autowired.test.autow22.model.Student;
 import com.example.autowired.test.autow22.model.UserDetailModel;
 import com.example.autowired.test.autow22.responce.UserResponce;
 import com.example.autowired.test.autow22.service.StudentImpl;
@@ -21,8 +22,8 @@ public class Cont {
 
     @Autowired
     UserImpl userImpl;
-/*
-    @PostMapping
+
+ /*   @PostMapping(value = "")
     public Student createStudent(@RequestBody Student student){
         return   studentImpl.studentService(student);
     }*/
