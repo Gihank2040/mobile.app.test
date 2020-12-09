@@ -1,38 +1,18 @@
-package com.mobileApp.mobile.app.test.entity;
+package com.example.autowired.test.autow22.dto;
 
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
-@Entity(name="users")
-public class UserEntity implements Serializable{
-    private static final long serialVersionUID = 7968883935095306731L;
-
-    @Id
-    @GeneratedValue
+public class UserDto implements Serializable {
+    private static final long serialVersionUID = 8745702211587082479L;
     private long id;
-
-    @Column(nullable = false)
     private String userId;
-
-    @Column(nullable = false ,length = 50)
     private String firstName;
-
-    @Column(nullable = false ,length = 50)
     private String lastName;
-
-    @Column(nullable = false ,length = 120)
     private String email;
-
-    @Column(nullable = false)
+    private String password;
     private String encryptedPassword;
-
     private String emailVerificationToken;
-
-    @Column(nullable = false, columnDefinition = "default value false")
-    private Boolean emailVerificationStatus;
+    private Boolean emailVerificationStatus = false;
 
     public long getId() {
         return id;
@@ -72,6 +52,14 @@ public class UserEntity implements Serializable{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEncryptedPassword() {

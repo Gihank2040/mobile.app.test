@@ -1,19 +1,11 @@
-package com.mobileApp.mobile.app.test.responce;
+package com.example.autowired.test.autow22.model;
 
-public class UserResponce {
-
-    private String userId;
+public class UserDetailModel {
     private String firstName;
     private String lastName;
     private String email;
+    private String password;
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -37,5 +29,13 @@ public class UserResponce {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
