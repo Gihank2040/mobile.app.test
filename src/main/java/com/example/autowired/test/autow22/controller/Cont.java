@@ -8,10 +8,7 @@ import com.example.autowired.test.autow22.service.StudentImpl;
 import com.example.autowired.test.autow22.service.UserImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("test")
@@ -23,10 +20,10 @@ public class Cont {
     @Autowired
     UserImpl userImpl;
 
- /*   @PostMapping(value = "")
-    public Student createStudent(@RequestBody Student student){
-        return   studentImpl.studentService(student);
-    }*/
+    @GetMapping(value = "student")
+    public String createStudent(){
+        return  "Authentication Successful";
+    }
 
     @PostMapping
     public UserResponce createUser(@RequestBody UserDetailModel userdetail) {
