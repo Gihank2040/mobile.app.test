@@ -26,4 +26,10 @@ public class StudentImpl implements StudentService {
         return xx;
 
     }
+
+    @Override
+    public String test() {
+        String xx = "this is test";
+        return xx;
+    }
 }

@@ -8,4 +8,6 @@ public interface StudentService {
     public Student studentService(Student student);
 
     public List findStudent(Student student);
+
+    String test();
 }

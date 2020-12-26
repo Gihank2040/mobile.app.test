@@ -1,6 +1,9 @@
 package com.example.autowired.test.autow22.security;
 
+import com.example.autowired.test.autow22.SpringApplicationContext;
+import com.example.autowired.test.autow22.dto.UserDto;
 import com.example.autowired.test.autow22.modelRequest.UserLoginRequestModel;
+import com.example.autowired.test.autow22.service.UserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -10,7 +13,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -36,9 +38,8 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
                     requestModel.getPassword(),
                     new ArrayList<>()));
         } catch (IOException e) {
-            e.printStackTrace();
+           throw new RuntimeException(e);
         }
-        return null;
     }
 
     @Override
@@ -48,9 +49,13 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
                .setSubject(userName)
                .setExpiration(new Date(System.currentTimeMillis()+SecurityConstants.EXPIRATION_TIME))
                .signWith(SignatureAlgorithm.HS512, SecurityConstants.TOKEN_SECRET)
-                .compact();
+               .compact();
+
+        UserService userService = (UserService) SpringApplicationContext.getBean("userImpl");
+        UserDto userDto = userService.getUserByEmail(userName);
 
         response.addHeader(SecurityConstants.HEADER_STRING, SecurityConstants.TOKEN_PREFIX + token);
+        response.addHeader("UserID", userDto.getUserId());
     }
 }
 
