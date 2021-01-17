@@ -36,6 +36,9 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 
+    // .antMatchers( HttpMethod.POST,"/h2/**").permitAll()
+    // .antMatchers( HttpMethod.GET,"/h2/**").permitAll()
+
     public AuthenticationFilter getAuthenticationFilter() throws Exception {
         final AuthenticationFilter filter = new AuthenticationFilter(authenticationManager());
         filter.setFilterProcessesUrl("/user/login");

@@ -1,6 +1,6 @@
 package com.example.autowired.test.autow22.responce;
 
-public class UserResponce {
+public class UserResponse {
     private String userId;
     private String firstName;
     private String lastName;

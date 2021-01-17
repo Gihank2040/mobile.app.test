@@ -1,6 +1,7 @@
 package com.example.autowired.test.autow22.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class UserDto implements Serializable {
     private static final long serialVersionUID = 8745702211587082479L;
@@ -13,9 +14,18 @@ public class UserDto implements Serializable {
     private String encryptedPassword;
     private String emailVerificationToken;
     private Boolean emailVerificationStatus = false;
+    private List<AddressDTO> addresses;
 
     public long getId() {
         return id;
+    }
+
+    public List<AddressDTO> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<AddressDTO> addresses) {
+        this.addresses = addresses;
     }
 
     public void setId(long id) {
