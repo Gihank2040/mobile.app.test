@@ -2,20 +2,21 @@ package com.example.autowired.test.autow22.model;
 
 public class UserAddresses {
 
-    private long id;
+  //  private long id;
     private String city;
     private String country;
     private String streetName;
     private String postalCode;
     private String type;
 
+/*
     public long getId() {
         return id;
     }
 
     public void setId(long id) {
         this.id = id;
-    }
+    }*/
 
     public String getCity() {
         return city;

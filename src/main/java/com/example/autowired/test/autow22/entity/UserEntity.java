@@ -37,8 +37,8 @@ public class UserEntity implements Serializable {
 
     @OneToMany(mappedBy = "userEntity", cascade = CascadeType.ALL)
     private List<AddressEntity> addresses;
-
-
+    //userEntity must same in AddressEntity @JoinColumn and AddressDTO
+    //Mainly I think AddressDto
 
     public long getId() {
         return id;

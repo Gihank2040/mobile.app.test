@@ -36,26 +36,20 @@ public class UserImpl implements UserService {
     public UserDto createUser(UserDto userDto) {
         //check email address already exist using custom query
         //if(userRepo.findUserByEmail(userDto.getEmail()) != null) throw new RuntimeException("Record already exists");
-        ModelMapper modelMapper = new ModelMapper();
 
         for (int i = 0; i < userDto.getAddresses().size(); i++) {
             AddressDTO address = userDto.getAddresses().get(i);
-            address.setUserDto(userDto);
-            address.setAddressId(utils.generateAddressId(25));
+            address.setUserEntity(userDto);
+            address.setAddressId(utils.generateAddressId(30));
             userDto.getAddresses().set(i, address);
         }
-        // UserEntity userEntity = new UserEntity();
+        ModelMapper modelMapper = new ModelMapper();
         UserEntity userEntity = modelMapper.map(userDto, UserEntity.class);
-        //BeanUtils.copyProperties(userDto, userEntity);
-
         String publicUserId = utils.generateUserId(30);
         userEntity.setEncryptedPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
         userEntity.setUserId(publicUserId);
-
         UserEntity storeUser = userRepo.save(userEntity);
-        // UserDto returnValue = new UserDto();
         UserDto returnValue = modelMapper.map(storeUser, UserDto.class);
-        //BeanUtils.copyProperties(storeUser, returnValue);
         return returnValue;
     }
 

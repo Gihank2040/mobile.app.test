@@ -35,10 +35,6 @@ public class AddressEntity implements Serializable {
     private UserEntity userEntity;
 
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
     public long getId() {
         return id;
     }
@@ -95,11 +91,11 @@ public class AddressEntity implements Serializable {
         this.type = type;
     }
 
-    public UserEntity getUserDetails() {
+    public UserEntity getUserEntity() {
         return userEntity;
     }
 
-    public void setUserDetails(UserEntity userDetails) {
-        this.userEntity = userDetails;
+    public void setUserEntity(UserEntity userEntity) {
+        this.userEntity = userEntity;
     }
 }

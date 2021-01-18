@@ -39,18 +39,15 @@ public class UserController {
     public UserResponse createUser(@RequestBody UserDetailModel userDetail) throws Exception {
         if (userDetail.getEmail().isEmpty() || userDetail.getFirstName().isEmpty() || userDetail.getLastName().isEmpty() || userDetail.getPassword().isEmpty()) throw new UserServiceException(ErrorMessages.MISSING_REQUIRED_FIELD.getErrorMessage());
         //if (userDetail.getEmail().isEmpty()) throw new NullPointerException("This is trigger -> ApplicationExceptionHandler.handleOtherException");
-        UserResponse returnValue = new UserResponse();
-
         // Using user beanUtils to transfer object
         //UserDto userDto = new UserDto();
         //BeanUtils.copyProperties(userDetail, userDto);
-
         //Using Model mapper to transfer object. This is best way
+
         ModelMapper modelMapper = new ModelMapper();
         UserDto userDto = modelMapper.map(userDetail, UserDto.class);
-
         UserDto createUser = userImpl.createUser(userDto);
-        returnValue = modelMapper.map(createUser, UserResponse.class);
+        UserResponse returnValue = modelMapper.map(createUser, UserResponse.class);
         //BeanUtils.copyProperties(createUser, returnValue);
         return returnValue;
     }

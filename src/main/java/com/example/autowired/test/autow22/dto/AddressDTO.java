@@ -9,7 +9,7 @@ public class AddressDTO {
     private String streetName;
     private String postalCode;
     private String type;
-    private UserDto userDto;
+    private UserDto userEntity;
 
     public long getId() {
         return id;
@@ -25,6 +25,14 @@ public class AddressDTO {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public UserDto getUserEntity() {
+        return userEntity;
+    }
+
+    public void setUserEntity(UserDto userEntity) {
+        this.userEntity = userEntity;
     }
 
     public String getCountry() {
@@ -59,14 +67,6 @@ public class AddressDTO {
         this.type = type;
     }
 
-    public UserDto getUserDto() {
-        return userDto;
-    }
-
-    public void setUserDto(UserDto userDto) {
-        this.userDto = userDto;
-    }
-
     public String getAddressId() {
         return addressId;
     }
@@ -74,4 +74,5 @@ public class AddressDTO {
     public void setAddressId(String addressId) {
         this.addressId = addressId;
     }
+
 }
